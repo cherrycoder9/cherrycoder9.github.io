@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext", // 또는 "Bundler"
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    // "baseUrl": "./src", // (선택 사항) 절대 경로 import를 위한 기본 경로 설정
+    // "paths": { // (선택 사항) 경로 별칭 설정
+    //   "@/*": ["*"]
+    // }
+  },
+  "include": [
+    "src/**/*"
+  ], // 컴파일 대상에 src 폴더 내 모든 .ts 파일을 포함
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] // 컴파일 대상에서 제외할 폴더
+}
