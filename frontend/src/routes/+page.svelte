@@ -1,5 +1,5 @@
 <script lang="ts">
-	// 1. static에서 실제 변수 이름을 직접 가져옵니다.
+	// 1. static에서 실제 변수 이름을 직접 가져옵니다..
 	import { PUBLIC_VITE_API_BASE_URL } from '$env/static/public';
 
 	// 2. 템플릿에서 사용하는 모든 상태 변수를 선언합니다.
