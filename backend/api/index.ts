@@ -26,7 +26,7 @@ app.get('/', (c) => {
 // 새로운 API 엔드포인트 추가
 app.get('/greet', (c) => {
   console.log('✅ GET /api/greet 요청 받음'); // 백엔드 터미널에 로그 출력
-  const message = '안녕하세요! Hono 백엔드에서 보내는 메시지입니다. 👋';
+  const message = '안녕하세요!! Hono 백엔드에서 보내는 메시지입니다. 👋';
   return c.json({ message: message }); // JSON 형태로 메시지 반환
 });
 

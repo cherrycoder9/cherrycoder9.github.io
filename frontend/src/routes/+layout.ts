@@ -1,5 +1,4 @@
 // frontend/src/routes/+layout.ts
-// dd
 
 // SvelteKit의 개발/프로덕션 모드 환경 변수를 가져옵니다.
 import { dev } from '$app/environment';

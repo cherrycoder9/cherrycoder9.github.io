@@ -18,7 +18,7 @@
 			const res = await fetch(`${PUBLIC_VITE_API_BASE_URL}/api/greet`);
 
 			if (!res.ok) {
-				throw new Error('API 응답이 올바르지 않습니다.');
+				throw new Error('API 응답이 올바르지 않습니다!!');
 			}
 
 			const data = await res.json();
