@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors'; // CORS 미들웨어 import
 
-const app = new Hono().basePath('/api');
+const app = new Hono();
 
 // CORS 미들웨어 설정....
 app.use(
