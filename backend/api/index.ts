@@ -3,7 +3,7 @@ import { cors } from 'hono/cors';
 
 const app = new Hono();
 
-// 디버깅을 위해 모든 출처를 허용하는 가장 단순한 CORS 설정
+// 디버깅을 위해 모든 출처를 허용하는 가장 단순한 CORS 설정.
 app.use('*', cors());
 
 // 다른 모든 라우트를 제거하고, 오직 이 테스트 라우트만 남깁니다.
