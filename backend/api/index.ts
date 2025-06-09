@@ -3,7 +3,7 @@ import { cors } from 'hono/cors'; // CORS 미들웨어 import
 
 const app = new Hono().basePath('/api');
 
-// CORS 미들웨어 설정..
+// CORS 미들웨어 설정...
 app.use(
   '/*', // 하위의 모든 경로에 CORS 적용
   cors({
@@ -11,7 +11,7 @@ app.use(
     // 또는 개발 편의를 위해 일단 모든 출처를 허용할 수도 있습니다.
     origin: [
       'http://localhost:5173', // 로컬 개발용
-      'https://cherrycoder9-github-io-frontend.vercel.app/' // Vercel 배포용
+      'https://cherrycoder9-github-io-frontend.vercel.app' // Vercel 배포용
     ],
     allowMethods: ['GET', 'POST', 'OPTIONS'], // 허용할 HTTP 메소드
     allowHeaders: ['Content-Type', 'Authorization'], // 허용할 요청 헤더
