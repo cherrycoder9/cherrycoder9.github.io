@@ -1,35 +1,30 @@
 <script lang="ts">
+	// 1. static에서 실제 변수 이름을 직접 가져옵니다.
+	import { PUBLIC_VITE_API_BASE_URL } from '$env/static/public';
+
+	// 2. 템플릿에서 사용하는 모든 상태 변수를 선언합니다.
 	let isLoading = false;
 	let apiMessageFromServer = '';
 	let fetchError = '';
 
+	// 3. 템플릿에서 호출하는 함수 이름과 동일하게 맞춰줍니다.
 	async function callBackendApi() {
 		isLoading = true;
 		fetchError = '';
-		apiMessageFromServer = ''; // 이전 메시지 초기화
+		apiMessageFromServer = '';
 
 		try {
-			// 백엔드 API URL (Hono 서버가 3001 포트에서 실행 중이라고 가정)
-			const response = await fetch('http://localhost:3001/api/greet');
+			// 4. 'env.' 없이 직접 변수를 사용합니다.
+			const res = await fetch(`${PUBLIC_VITE_API_BASE_URL}/api/greet`);
 
-			if (!response.ok) {
-				// HTTP 응답 상태가 ok(200-299)가 아닐 경우 오류 발생
-				const errorText = await response.text(); // 오류 응답 본문 시도
-				throw new Error(
-					`API 요청 실패: ${response.status} ${response.statusText}. 서버 응답: ${errorText}`
-				);
+			if (!res.ok) {
+				throw new Error('API 응답이 올바르지 않습니다.');
 			}
 
-			// 응답을 JSON으로 파싱
-			const data = await response.json();
-
-			// 'message' 필드의 값을 alert으로 표시
-			alert(data.message);
-			apiMessageFromServer = data.message; // 페이지에도 표시 (선택 사항)
-		} catch (error: any) {
-			console.error('백엔드 API 호출 중 오류 발생:', error);
-			fetchError = error.message || '백엔드에서 데이터를 가져오는 데 실패했습니다.';
-			alert(`오류: ${fetchError}`);
+			const data = await res.json();
+			apiMessageFromServer = data.message;
+		} catch (e: any) {
+			fetchError = e.message;
 		} finally {
 			isLoading = false;
 		}
@@ -39,14 +34,14 @@
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
 
-<hr style="margin: 20px 0;" />
+<hr style="margin: 2rem 0;" />
 
 <h2>백엔드 API 호출 테스트</h2>
 <button on:click={callBackendApi} disabled={isLoading}>
 	{isLoading ? '백엔드 호출 중...' : '백엔드 API 호출하기'}
 </button>
 
-{#if apiMessageFromServer && !fetchError}
+{#if apiMessageFromServer}
 	<p style="margin-top: 10px; color: green;">
 		<strong>서버로부터 받은 메시지:</strong>
 		{apiMessageFromServer}

@@ -8,7 +8,12 @@ const app = new Hono();
 app.use(
   '/api/*', // /api/ 경로 하위의 모든 요청에 CORS 적용
   cors({
-    origin: 'http://localhost:5173', // SvelteKit 개발 서버 주소 허용
+    // Vercel에 배포된 프론트엔드 URL을 허용
+    // 또는 개발 편의를 위해 일단 모든 출처를 허용할 수도 있습니다.
+    origin: [
+      'http://localhost:5173', // 로컬 개발용
+      'https://your-frontend-project-name.vercel.app' // Vercel 배포용
+    ],
     allowMethods: ['GET', 'POST', 'OPTIONS'], // 허용할 HTTP 메소드
     allowHeaders: ['Content-Type', 'Authorization'], // 허용할 요청 헤더
   })
@@ -37,5 +42,4 @@ serve({
   port,
 });
 
-// Vercel 배포 시에는 일반적으로 Hono 앱 인스턴스를 export 합니다.
-// export default app;
+export default app; // Vercel 배포를 위해 export default 추가
