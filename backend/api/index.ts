@@ -11,7 +11,7 @@ app.use(
     // 또는 개발 편의를 위해 일단 모든 출처를 허용할 수도 있습니다.
     origin: [
       'http://localhost:5173', // 로컬 개발용
-      'https://cherrycoder9-github-io-frontend-mqffzxe15.vercel.app/' // Vercel 배포용
+      'https://cherrycoder9-github-io-frontend.vercel.app/' // Vercel 배포용
     ],
     allowMethods: ['GET', 'POST', 'OPTIONS'], // 허용할 HTTP 메소드
     allowHeaders: ['Content-Type', 'Authorization'], // 허용할 요청 헤더
