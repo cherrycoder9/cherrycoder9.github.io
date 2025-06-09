@@ -3,7 +3,7 @@ import { cors } from 'hono/cors'; // CORS 미들웨어 import
 
 const app = new Hono().basePath('/api');
 
-// CORS 미들웨어 설정...
+// CORS 미들웨어 설정....
 app.use(
   '/*', // 하위의 모든 경로에 CORS 적용
   cors({
