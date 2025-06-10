@@ -1,6 +1,6 @@
 // frontend/src/routes/+layout.ts
 
-// SvelteKit의 개발/프로덕션 모드 환경 변수를 가져옵니다..
+// SvelteKit의 개발/프로덕션 모드 환경 변수를 가져옵니다.
 import { dev } from '$app/environment';
 // SvelteKit 전용 애널리틱스 모듈을 가져옵니다.
 import { injectAnalytics } from '@vercel/analytics/sveltekit';
